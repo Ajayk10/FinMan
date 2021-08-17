@@ -1,0 +1,38 @@
+{% extends 'menubar.html' %}
+
+{% block content %}
+<br><br><br>
+<script>
+    function enabled()
+    {
+        document.getElementById("title").disabled=false;
+        document.getElementById("description").disabled=false;
+        console.log("fff");
+    }
+</script>
+
+    <h1>Welcome to In-Hand Details</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Date & Time</label>
+        <input id="date_time" name="date_time" type="text" class="form-control" value="{{item.date_time}}" readonly>
+        <label>Available Balance</label>
+        <input id="available_balance" name="available_balance" type="text" class="form-control" value="{{item.available_balance}}" readonly>
+        <label>Amount</label>
+        <input id="amount" name="amount" type="number" class="form-control" value="{{item.amount}}" readonly>
+        <label>Title</label>
+        <input id="title" name="title" type="text" class="form-control" value="{{item.title}}" disabled="true">
+        <label>Description</label>
+        <textarea id="description" name="description" type="text" class="form-control" disabled="true" style="height: 100px;"> {{item.description}}  </textarea> 
+    <hr>
+    <div class="d-grid gap-2">
+        <button type="button" class="btn btn-outline-warning" onclick="enabled()">Edit</button>
+    </div>
+    <hr>
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-info" id="but1" name="submit">Submit</button>
+    </div>
+    <br>
+    </form>
+{% endblock %}
+    

@@ -1,0 +1,55 @@
+{% extends 'menubar.html' %}
+
+{% block content %}
+<body style="background-color: black;color: white;">
+    <br><br><br>
+    <script>
+        function credit()
+        {
+            var avl_bal = document.getElementById("available_balance").value;
+            var amt = document.getElementById("amount").value;
+            var new_bal = Number(avl_bal) + Number(amt);
+            document.getElementById("available_balance").value = new_bal;
+        }
+        function debit()
+        {
+            var avl_bal = document.getElementById("available_balance").value;
+            var amt = document.getElementById("amount").value;
+            document.getElementById("amount").value = amt *-1;
+            var new_bal = Number(avl_bal) + Number(document.getElementById("amount").value);
+            document.getElementById("available_balance").value = new_bal;
+        }
+
+
+    </script>
+
+        <h1>Welcome to Joint Account Transaction</h1>
+        <hr>
+        <form method="POST" >
+            {% csrf_token %}
+            <label>Date & Time</label>
+            <input id="date_time" name="date_time" type="text" class="form-control" value='{% now "j/m/Y - h:i A e" %}' readonly>
+            <label>Available Balance</label>
+            <input id="available_balance" name="available_balance" type="text" class="form-control" value="{{balance}}" readonly>
+            <label>Amount</label>
+            <input id="amount" name="amount" type="number" class="form-control" required>
+            <label>Title</label>
+            <input id="title" name="title" type="text" class="form-control" required>
+            <label>Description</label>
+            <textarea required id="description" name="description" type="text" class="form-control" style="height: 100px;">   </textarea> 
+            <input type="hidden" id="month" name="month" value='{% now "m" %}'>
+            <input type="hidden" id="year" name="year" value='{% now "Y" %}'>
+        <hr>
+        <div class="d-grid gap-2 d-md-block">
+            <button type="button" class="btn btn-success btn-lg" onclick="credit()">Credit</button>
+            <button type="button" class="btn btn-danger btn-lg" onclick="debit()">Debit</button>
+        </div>
+        <hr>
+        <div class="d-grid gap-2">
+            <button type="submit" style="color: black;" class="btn btn-warning btn-lg" id="but1" name="submit"><b>Submit</b></button>
+        </div>
+        <br>
+        </form>
+</body>
+{% endblock %}
+    

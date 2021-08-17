@@ -1,0 +1,93 @@
+{% extends 'menubar.html' %}
+
+{% block content %}
+<style>
+  h4,h5{
+    color: yellow;
+  }
+  h6{
+    color: white;
+  }
+</style>
+
+
+<body style="background-color: black;color: white;">
+    <br><br><br>
+    <h1 >Welcome to Dashboard</h1>
+    <hr>
+<!--_________________________Available Balances ___________________-->
+
+    <h4 >Available Balances</h4>
+    <hr>
+  <table class="table">
+    <tr>
+      <td><h6>Joint Account:</h6></td>
+      <td><h4>{{joint}}</h4> </td>
+    </tr>
+    <tr>
+      <td><h6>In Hand:</h6></td>
+      <td><h4>{{inhand}}</h4> </td>
+    </tr>
+    <tr>
+      <td><h6>Pension Account:</h6></td>
+      <td><h4>{{pension}}</h4> </td>
+    </tr>
+    <tr>
+      <td><h6>CSB Account:</h6></td>
+      <td><h4>{{csb}}</h4> </td>
+    </tr>
+    <tr>
+      <td><h6>My Account: </h6></td>
+      <td><h4>{{my}}</h4> </td>
+    </tr>
+  </table>
+<hr>
+<!--_________________________Transaction Statitics for Current Month ___________________-->
+<hr>
+    <h4 >Transaction Statitics for Current Month</h4>
+    <hr>
+  <table class="table">
+    <tr>
+      <td><h6>Source</h6></td>
+      <td><h4>Credits(₹)</h4> </td>
+      <td><h4>Debits(₹)</h4> </td>
+    </tr>
+    <tr>
+      <td><h6>Joint Account:</h6></td>
+      <td><h4>{{jointcredit}}</h4> </td>
+      <td><h4>{{jointdebit}}</h4> </td>
+    </tr>
+    <tr>
+      <td><h6>In Hand:</h6></td>
+      <td><h4>{{inhandcredit}}</h4> </td>
+      <td><h4>{{inhanddebit}}</h4> </td>
+    </tr>
+    <tr>
+      <td><h6>Pension Account:</h6></td>
+      <td><h4>{{pensioncredit}}</h4> </td>
+      <td><h4>{{pensiondebit}}</h4> </td>
+    </tr>
+    <tr>
+      <td><h6>CSB Account:</h6></td>
+      <td><h4>{{csbcredit}}</h4> </td>
+      <td><h4>{{csbdebit}}</h4> </td>
+    </tr>
+    <tr>
+      <td><h6>My Account: </h6></td>
+      <td><h4>{{mycredit}}</h4> </td>
+      <td><h4>{{mydebit}}</h4> </td>
+    </tr>
+    <tr>
+      <td><h5 style="color:cyan;">Total </h6></td>
+      <td><h4>{{totalcredit}}</h4> </td>
+      <td><h4>{{totaldebit}}</h4> </td>
+    </tr>
+  </table>
+<hr>
+<div class="d-grid gap-2">
+  <a class="btn btn-info" href="{% url 'statistics' %}"><b>Detailed Statistics</b></a> 
+</div>
+  
+<hr>
+</body>
+{% endblock %}
