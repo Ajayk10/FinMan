@@ -83,7 +83,7 @@ def inhandtransaction(request):
         if balance == None:
             balance=100000
         context = {'all_item':all_item,'balance':balance}
-        return render(request, "InHandtransaction.html" ,context)   
+        return render(request, "inhandtransaction.html" ,context)   
 
 def csbaccounttransaction(request):
     if request.method == 'POST':
