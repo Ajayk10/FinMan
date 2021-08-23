@@ -25,35 +25,35 @@
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: black;">
         <div class="container-fluid">
-          <a style="color: white;font-family:cursive;" class="navbar-brand" href="{% url 'index' %}">
-            <img src="https://image.flaticon.com/icons/png/512/778/778338.png" alt="" width="30" height="30" class="d-inline-block align-text-top">FinMan</a>
+          <a style="color: white;font-family: cursive;" class="navbar-brand" href="{% url 'index' %}">
+            <img src="https://image.flaticon.com/icons/png/512/778/778338.png" alt="" width="40" height="40" class="d-inline-block align-text-top"><b>FinMan</b></a>
           <button style="background-color:white;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span  class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a style="color: white;font-family:cursive;" class="nav-link active" aria-current="page" href="{% url 'jointaccount' %}">Joint Account</a>
+                <a style="color: white;font-family:cursive;" class="nav-link active" aria-current="page" href="{% url 'jointaccount' %}"><h4>Joint Account</h4></a>
               </li>
               <li class="nav-item">
-                <a style="color: white;font-family:cursive;" class="nav-link" href="{% url 'inhand' %}">In Hand</a>
+                <a style="color: white;font-family:cursive;" class="nav-link" href="{% url 'inhand' %}"><h4>In Hand</h4></a>
               </li>
               <li class="nav-item">
-                <a style="color: white;font-family:cursive;" class="nav-link" href="{% url 'pensionaccount' %}">Pension Account</a>
+                <a style="color: white;font-family:cursive;" class="nav-link" href="{% url 'pensionaccount' %}"><h4>Pension Account</h4></a>
               </li>
               <li class="nav-item">
-                <a style="color: white;font-family:cursive;" class="nav-link" href="{% url 'csbaccount' %}">CSB Account</a>
+                <a style="color: white;font-family:cursive;" class="nav-link" href="{% url 'csbaccount' %}"><h4>CSB Account</h4></a>
               </li>
               <li class="nav-item">
-                <a style="color: white;font-family:cursive;" class="nav-link" href="{% url 'myaccount' %}">My Account</a>
+                <a style="color: white;font-family:cursive;" class="nav-link" href="{% url 'myaccount' %}"><h4>My Account</h4></a>
               </li>
               <li class="nav-item">
-                <a style="color: white;font-family:cursive;" class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+                <a style="color: white;font-family:cursive;" class="nav-link" href="{% url 'dashboard' %}"><h4>Dashboard</h4></a>
               </li>
           </div>
         </div>
       </nav>
-<div class="container" style="font-family: cursive;">
+<div class="container" style="font-family:cursive;">
     {% block content %}
     {% endblock %}
 </div>
