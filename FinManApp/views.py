@@ -36,7 +36,7 @@ def jointaccounttransaction(request):
         all_item=JointAccountModel.objects.all
         balance = JointAccountModel.objects.all().last()
         if balance == None:
-            balance=100000
+            balance=674382
         context = {'all_item':all_item,'balance':balance}
         return render(request, "jointaccounttransaction.html" ,context)
 
@@ -51,7 +51,7 @@ def pensionaccounttransaction(request):
         pension_all_item=PensionAccountModel.objects.all
         balance = PensionAccountModel.objects.all().last()
         if balance == None:
-            balance=100000
+            balance=1972
         context = {'pension_all_item':pension_all_item,'balance':balance}
         return render(request, "pensionaccounttransaction.html" ,context)   
 
@@ -66,7 +66,7 @@ def myaccounttransaction(request):
         all_item=MyAccountModel.objects.all
         balance = MyAccountModel.objects.all().last()
         if balance == None:
-            balance=100000
+            balance=0
         context = {'all_item':all_item,'balance':balance}
         return render(request, "myaccounttransaction.html" ,context)  
 
@@ -81,7 +81,7 @@ def inhandtransaction(request):
         all_item=InHandModel.objects.all()
         balance = InHandModel.objects.all().last()
         if balance == None:
-            balance=100000
+            balance=6200
         context = {'all_item':all_item,'balance':balance}
         return render(request, "inhandtransaction.html" ,context)   
 
@@ -96,7 +96,7 @@ def csbaccounttransaction(request):
         all_item=CSBAccountModel.objects.all
         balance = CSBAccountModel.objects.all().last()
         if balance == None:
-            balance=100000
+            balance=517
         context = {'all_item':all_item,'balance':balance}
         return render(request, "csbaccounttransaction.html" ,context)  
 
