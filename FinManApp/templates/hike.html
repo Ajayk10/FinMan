@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFSkNKcqCgk2PpUqGPjXNSDwQ6Us0fEGWZ2A&usqp=CAU" type="image/x-icon"/>
+    
+  <title>Hike Calculator</title>
+</head>
+<body>
+</html>
+{% extends 'base.html' %}
+{% load static %}
+<html>
+{% block content %}
+
+<div class="card mb-3"  >
+    <div class="row g-0">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title" style="text-align: center;">Enter the Salary here..!!</h5>
+          <form class="form-floating">
+            <input type="number" class="form-control" id="floatingInputValue" placeholder="Current Salary"  >
+<hr/>
+            <table class="table table-bordered"  >
+                <tr>
+                    <th scope="col" colspan="2" style="text-align:center;color:#36bf5a;">Enter the Expected Hike Percentage</th>
+
+                  </tr>
+
+                <tr>
+                    <th scope="row" style="text-align:center;"><input   id="exp1" type="number" class="form-control"></th>
+                </tr>
+            </table>
+            
+          </form>
+          <button onclick="execute()" class="btn btn-success">Calculate</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+<hr style="color: white;">
+  <div class="card"  >
+    <div class="card-body">
+      <table class="table table-bordered"  >
+        <tr>
+            <th scope="col" colspan="2" style="text-align:center;" id="h1">%</th>
+          </tr>
+          <tr>
+            <td scope="row" style="text-align:center;">Current Salary</td>
+            <td scope="row" style="text-align:center;" id="cur">0</td>
+
+          </tr>
+          <tr>  
+            <td scope="row" style="text-align:center;">Revised Salary</td>
+            <td scope="row" style="text-align:center;" id="revised">0</td>
+          </tr>
+          <tr>  
+            <td scope="row" style="text-align:center;">Take home after TDS</td>
+            <td scope="row" style="text-align:center;" id="tds">0</td>
+          </tr>
+      </table>
+    </div>
+  </div>
+  <script>
+    function execute()
+    {
+      //document.getElementById("revised1").innerHTML="";
+
+      var sal = document.getElementById("floatingInputValue").value;
+      var salmonth = (sal*100000)/12;
+      var one = (document.getElementById("exp1").value);
+      document.getElementById("h1").innerHTML=one+"%";
+
+
+      document.getElementById("cur").innerHTML=sal+"\n("+salmonth+")";
+
+      var begin = sal*one/100;
+      var revised = Number(sal)+begin;
+      var revisedmonth = (revised*100000)/12;
+      var tds = Number(revised)-(revised/10)
+      var tdsmonth = (tds*100000)/12;
+      document.getElementById("revised").innerHTML=revised+"\n("+revisedmonth+")";
+      document.getElementById("tds").innerHTML=tds+"\n("+tdsmonth+")";
+
+
+    }
+
+   
+</script>
+  {% endblock %}
+</html>
