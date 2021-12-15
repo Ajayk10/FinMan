@@ -30,5 +30,8 @@ urlpatterns = [
     #-------------------------------------------------------------------------
     path('dashboard/', views.dashboard, name = 'dashboard'),
     path('statistics/', views.statistics, name = 'statistics'),
+    #-------------------------------------------------------------------------
+    path('Hike/', views.hike, name = 'hike'),
+    path('Todo/', views.Todo, name = 'Todo'),
     
 ]
