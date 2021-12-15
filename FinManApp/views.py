@@ -450,4 +450,8 @@ def statistics(request):
                 'totalcredit':totalcredit,'totaldebit':totaldebit,}
         return render(request, "statistics.html" ,context)
 
-    
+def hike(request):
+	return render(request, "hike.html" ,{})
+
+def Todo(request):
+	return render(request,'Todo.html',{})
