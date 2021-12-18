@@ -6,12 +6,49 @@
   <title>To-do</title>
 </head>
 <body>
-</html>
 {% extends 'base.html' %}
-{% load static %}
-<html>
-{% block content %}
-<h2>Welcome to To-do</h2>
-<h4>Coming Soon..</h4>
+{% load static %
+    {% block content %}
+    <h4>Welcome to Goal List</h4><br>
+    <table class="table table-bordered">
+        <tr  class=" table table-success">
+            <th>Goal Year</th>
+            <th>Description</th>
+            <th>Acc. Date</th>
+            <th>Action</th>
+        </tr>
+        
+        {% for item in list_item %}
+            {% if item.accomplished %}
+            <tr class=" table table-secondary" style="color:darkgrey;">
+                <td><del>{{item.goal_year}}</del></td>
+                <td><del>{{item.description}} </del></td>
+                <td><del>{{item.accomplished_year}}</del></td>
+                <td></td>
+            </tr>
+            {% else %}
+            <tr>
+                <td>{{item.goal_year}}</td>
+                <td>{{item.description}} </td>
+                <td>{{item.accomplished_year}} <a style="border-radius: 100%;" class="btn btn-success" href="{% url 'accomplished' item.id %}"><i class="fas fa-check-circle"></i></a></td>
+                <td>
+                    <a style="border-radius: 100%;" class="btn btn-outline-dark" href="{% url 'jointaccountdetails' item.id %}"><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Year</label><input type="text" id="goal_year" name="goal_year" class="form-control">
+        <hr>
+        <button type="submit" class="btn btn-outline-success">Select</button>
+        <a style="float: right;" href="{% url 'addgoal' %}" type="submit" class="btn btn-outline-success">Add</a>
+    </form>
+    
+    <hr>
+</body>
 {% endblock %}
-</html>
+
+    
