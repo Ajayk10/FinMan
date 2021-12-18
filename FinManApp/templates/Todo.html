@@ -32,7 +32,7 @@
                 <td>{{item.description}} </td>
                 <td>{{item.accomplished_year}} <a style="border-radius: 100%;" class="btn btn-success" href="{% url 'accomplished' item.id %}"><i class="fas fa-check-circle"></i></a></td>
                 <td>
-                    <a style="border-radius: 100%;" class="btn btn-outline-dark" href="{% url 'jointaccountdetails' item.id %}"><i class="fas fa-trash-alt"></i></a>
+                    <a style="border-radius: 100%;" class="btn btn-outline-dark" href="{% url 'delete' item.id %}"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
             {% endif %}
