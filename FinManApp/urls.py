@@ -33,5 +33,6 @@ urlpatterns = [
     #-------------------------------------------------------------------------
     path('Hike/', views.hike, name = 'hike'),
     path('Todo/', views.Todo, name = 'Todo'),
-    
+    path('addgoal/', views.addgoal, name = 'addgoal'),
+    path('accomplished/<TodoList_id>', views.accomplished, name = 'accomplished')    
 ]
