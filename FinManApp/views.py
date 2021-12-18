@@ -487,3 +487,8 @@ def accomplished(request, TodoList_id):
     obj.accomplished_year=curr_year
     obj.save()
     return redirect('Todo')
+
+def delete(request ,TodoList_id):
+	item = TodoList.objects.get(pk=TodoList_id)
+	item.delete()
+	return redirect('Todo')
