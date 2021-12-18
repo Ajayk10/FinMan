@@ -454,4 +454,36 @@ def hike(request):
 	return render(request, "hike.html" ,{})
 
 def Todo(request):
-	return render(request,'Todo.html',{})
+    list_item =TodoList.objects.all()
+    if request.method == 'POST':
+        curr_year = request.POST["goal_year"]
+        list_item = TodoList.objects.filter(goal_year = curr_year)
+        return render(request, "Todo.html" ,{'list_item':list_item})
+    else:
+        list_item =TodoList.objects.all()
+        curr_year = ""
+        list_item = TodoList.objects.filter(goal_year = curr_year)
+        return render(request,'Todo.html',{'list_item':list_item})
+	    
+
+def addgoal(request):
+    if request.method == 'POST':
+        form = TodoListForm(request.POST or None)
+        if form.is_valid():
+            form.save()
+        all_item=TodoList.objects.all
+        context = {'all_item':all_item}
+        return render(request,'addgoal.html',context) 
+    else:
+        all_item=TodoList.objects.all
+        context = {'all_item':all_item}
+        return render(request,'addgoal.html',context) 
+	
+def accomplished(request, TodoList_id):
+    mydate = datetime.now()
+    curr_year = mydate.strftime("%Y")
+    obj = TodoList.objects.get(pk=TodoList_id)
+    obj.accomplished=True
+    obj.accomplished_year=curr_year
+    obj.save()
+    return redirect('Todo')
