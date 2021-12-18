@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFSkNKcqCgk2PpUqGPjXNSDwQ6Us0fEGWZ2A&usqp=CAU" type="image/x-icon"/>
+    
+  <title>To-do</title>
+</head>
+<body>
+</html>
+{% extends 'base.html' %}
+{% load static %}
+<html>
+{% block content %}
+<h2>Add Your Goal Here</h2><br>
+
+<form method="POST" >
+  {% csrf_token %}
+  <label>Goal Year</label>
+  <input class="form-control" id="goal_year" name="goal_year">
+  <label>Description</label>
+  <textarea required id="description" name="description" type="text" class="form-control" style="height: 100px;">   </textarea> 
+  <label hidden>Accomplished Year</label>
+  <input hidden class="form-control" id="accomplished_year" name="accomplished_year" value="xxxx">
+  <hr>
+<div class="d-grid gap-2">
+  <button type="submit" class="btn btn-success btn-lg" name="submit">Submit</button>
+</div>
+<br>
+</form><br>
+
+{% endblock %}
+</html>
