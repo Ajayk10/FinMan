@@ -61,3 +61,11 @@ class MyAccountModel(models.Model):
 
     def __str__(self):
         return self.available_balance
+    
+   class TodoList(models.Model):
+    goal_year = models.CharField(max_length=200 ,null=True)
+    description =  models.CharField(max_length=200 ,null=True)
+    accomplished_year =  models.CharField(max_length=200 ,null=True)
+    accomplished = models.BooleanField(default=False)
+    def __str__(self):
+        return self.description
